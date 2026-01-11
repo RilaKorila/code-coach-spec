@@ -8,7 +8,8 @@ description: "Task list template for feature implementation"
 **Input**: Design documents from `/specs/[###-feature-name]/`
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
-**Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
+**Tests**: The examples below include test tasks. By constitution, tests are the default expectation for non-trivial logic, integrations, and user-visible behavior.
+Only omit tests if the feature specification explicitly opts out; in that case, include explicit manual/alternative verification tasks instead.
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
@@ -24,6 +25,11 @@ description: "Task list template for feature implementation"
 - **Web app**: `backend/src/`, `frontend/src/`
 - **Mobile**: `api/src/`, `ios/src/` or `android/src/`
 - Paths shown below assume single project - adjust based on plan.md structure
+
+## E2E (Web app)
+
+- Web アプリを含む場合、主要ユーザーフローの E2E は Playwright を優先 SHOULD
+- 配置例: `frontend/e2e/`（Web app 構成）または `tests/e2e/`（Single project 構成）
 
 <!-- 
   ============================================================================
@@ -79,12 +85,13 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 1 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 1 (DEFAULT) ⚠️
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
 - [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
 - [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T011a [P] [US1] Playwright E2E test for [user journey] in frontend/e2e/[name].spec.ts
 
 ### Implementation for User Story 1
 
@@ -105,10 +112,11 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 2 (DEFAULT) ⚠️
 
 - [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
 - [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T019a [P] [US2] Playwright E2E test for [user journey] in frontend/e2e/[name].spec.ts
 
 ### Implementation for User Story 2
 
@@ -127,10 +135,11 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 3 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 3 (DEFAULT) ⚠️
 
 - [ ] T024 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
 - [ ] T025 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T025a [P] [US3] Playwright E2E test for [user journey] in frontend/e2e/[name].spec.ts
 
 ### Implementation for User Story 3
 

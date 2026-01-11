@@ -1,0 +1,196 @@
+openapi: 3.0.3
+info:
+  title: Code Coach Spec API
+  version: 0.1.0
+  description: >
+    MVP API for pairing, question generation, event ingestion, and aggregated metrics.
+    Note: raw prompt/code may be transmitted for question generation but MUST NOT be persisted.
+servers:
+  - url: https://api.example.com
+paths:
+  /v1/pairing-codes:
+    post:
+      summary: Create a pairing code for the logged-in user
+      responses:
+        "200":
+          description: Pairing code created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PairingCodeResponse"
+  /v1/pairing-codes/claim:
+    post:
+      summary: Claim a pairing code from a VSCode extension installation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PairingClaimRequest"
+      responses:
+        "200":
+          description: Claimed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PairingClaimResponse"
+  /v1/questions/generate:
+    post:
+      summary: Generate a learning question using Gemini (Vertex AI)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GenerateQuestionRequest"
+      responses:
+        "200":
+          description: Question generated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GenerateQuestionResponse"
+  /v1/events:
+    post:
+      summary: Ingest Code Coach interaction events (aggregates-only storage)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IngestEventRequest"
+      responses:
+        "204":
+          description: Accepted
+  /v1/metrics:
+    get:
+      summary: Fetch aggregated metrics for dashboard
+      parameters:
+        - in: query
+          name: range
+          required: true
+          schema:
+            type: string
+            enum: [7d, 30d]
+        - in: query
+          name: category
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: eventType
+          required: false
+          schema:
+            type: string
+            enum: [asked, answered, dismissed, feedback]
+      responses:
+        "200":
+          description: Metrics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MetricsResponse"
+components:
+  schemas:
+    PairingCodeResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        expiresAt:
+          type: string
+          format: date-time
+      required: [code, expiresAt]
+    PairingClaimRequest:
+      type: object
+      properties:
+        code:
+          type: string
+        installationId:
+          type: string
+      required: [code, installationId]
+    PairingClaimResponse:
+      type: object
+      properties:
+        userId:
+          type: string
+        installationToken:
+          type: string
+          description: Token for VSCode extension installation (returned on claim)
+      required: [userId, installationToken]
+    GenerateQuestionRequest:
+      type: object
+      properties:
+        installationId:
+          type: string
+        rawPrompt:
+          type: string
+          description: Raw user prompt (MUST NOT be persisted)
+        rawCode:
+          type: string
+          description: Raw generated code (MUST NOT be persisted)
+        categoryHint:
+          type: string
+          description: Optional hint such as "prompt-understanding" or "code-reading"
+      required: [installationId]
+    GenerateQuestionResponse:
+      type: object
+      properties:
+        questionId:
+          type: string
+        category:
+          type: string
+        questionText:
+          type: string
+        answerType:
+          type: string
+          enum: [free_text, single_choice]
+        choices:
+          type: array
+          items:
+            type: string
+      required: [questionId, category, questionText, answerType]
+    IngestEventRequest:
+      type: object
+      properties:
+        installationId:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        type:
+          type: string
+          enum: [QuestionAsked, AnswerSubmitted, QuestionDismissed, Feedback]
+        questionCategory:
+          type: string
+        trigger:
+          type: string
+          enum: [manual, auto]
+        autoReason:
+          type: string
+        selfCheck:
+          type: string
+          enum: [understood, not_understood]
+      required: [installationId, timestamp, type]
+    MetricsResponse:
+      type: object
+      properties:
+        points:
+          type: array
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+                format: date
+              eventType:
+                type: string
+              questionCategory:
+                type: string
+              selfCheck:
+                type: string
+              count:
+                type: integer
+            required: [date, eventType, questionCategory, selfCheck, count]
+      required: [points]
+

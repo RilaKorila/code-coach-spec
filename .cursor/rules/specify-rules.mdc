@@ -1,0 +1,30 @@
+# code-coach-spec Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2026-01-11
+
+## Active Technologies
+
+- TypeScript + Node.js 20 LTS + VSCode Extension API, Hono, Next.js, Playwright, Google Auth (OIDC), Vertex AI (Gemini) (001-vscode-usage-analytics)
+
+## Project Structure
+
+```text
+backend/
+frontend/
+tests/
+```
+
+## Commands
+
+npm test && npm run lint
+
+## Code Style
+
+TypeScript + Node.js 20 LTS: Follow standard conventions
+
+## Recent Changes
+
+- 001-vscode-usage-analytics: Added TypeScript + Node.js 20 LTS + VSCode Extension API, Hono, Next.js, Playwright, Google Auth (OIDC), Vertex AI (Gemini)
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->

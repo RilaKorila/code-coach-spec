@@ -3,7 +3,7 @@
 **Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
 **Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
 
-**Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.
+**Note**: This template is filled in by the `/speckit.plan` command. See `.cursor/commands/speckit.plan.md` for the execution workflow.
 
 ## Summary
 
@@ -31,7 +31,12 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Feature spec is complete (user stories, acceptance scenarios, requirements, success criteria).
+- No unresolved clarification markers remain (stop and clarify if present).
+- Testing stance is explicit (tests by default; opt-out requires explicit rationale + alternate verification).
+- Planned work preserves story independence and traceability (tasks map to stories; explicit file paths).
+- Tech constraints are honored (VSCode extension + analysis web app; Web BE = Hono; Web FE = Next.js; AI = Gemini API; Deploy uses a Google Cloud application execution product).
+- No unnecessary features or premature optimization are planned; exceptions are documented with measurements + rationale.
 
 ## Project Structure
 
