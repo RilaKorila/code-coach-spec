@@ -191,6 +191,10 @@ components:
                 type: string
               count:
                 type: integer
-            required: [date, eventType, questionCategory, selfCheck, count]
+              lastRecordedAt:
+                type: string
+                format: date-time
+                description: Last time an event was recorded into this aggregate bucket
+            required: [date, eventType, questionCategory, selfCheck, count, lastRecordedAt]
       required: [points]
 

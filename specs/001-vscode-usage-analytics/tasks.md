@@ -117,15 +117,15 @@ description: "Task list for feature implementation"
 
 #### VSCode Extension
 
-- [ ] T035 [P] [US1] Add extension settings + commands scaffold in `apps/extension/package.json` and `apps/extension/src/extension.ts`
-- [ ] T036 [US1] Implement pairing-code input flow in `apps/extension/src/pairing/pairingCode.ts` (store installation token)
-- [ ] T037 [US1] Implement Chat Participant API entrypoint (相談の入口) in `apps/extension/src/chat/participant.ts`
-- [ ] T038 [US1] Implement editor heuristic detector in `apps/extension/src/heuristics/generationLikeDetector.ts` (large insert, test-less logic increase)
-- [ ] T039 [US1] Implement “ask question” manual trigger in `apps/extension/src/commands/askQuestion.ts`
-- [ ] T040 [US1] Implement auto-trigger after 5 generation-like detections in `apps/extension/src/heuristics/autoTrigger.ts`
-- [ ] T041 [US1] Implement API client for extension in `apps/extension/src/api/client.ts`
-- [ ] T042 [US1] Implement question generation call (send raw prompt/code) in `apps/extension/src/api/generateQuestion.ts`
-- [ ] T043 [US1] Implement answer submission + self-check event in `apps/extension/src/api/submitAnswer.ts`
+- [x] T035 [P] [US1] Add extension settings + commands scaffold in `apps/extension/package.json` and `apps/extension/src/extension.ts`
+- [x] T036 [US1] Implement pairing-code input flow in `apps/extension/src/pairing/pairingCode.ts` (store installation token)
+- [x] T037 [US1] Implement Chat Participant API entrypoint (相談の入口) in `apps/extension/src/chat/participant.ts`
+- [x] T038 [US1] Implement editor heuristic detector in `apps/extension/src/heuristics/generationLikeDetector.ts` (large insert, test-less logic increase)
+- [x] T039 [US1] Implement “ask question” manual trigger in `apps/extension/src/commands/askQuestion.ts`
+- [x] T040 [US1] Implement auto-trigger after 5 generation-like detections in `apps/extension/src/heuristics/autoTrigger.ts`
+- [x] T041 [US1] Implement API client for extension in `apps/extension/src/api/client.ts`
+- [x] T042 [US1] Implement question generation call (send raw prompt/code) in `apps/extension/src/commands/askQuestion.ts` (MVP integrated)
+- [x] T043 [US1] Implement answer submission + self-check event in `apps/extension/src/commands/askQuestion.ts` (MVP integrated)
 
 **Checkpoint**: US1 end-to-end demo possible (extension → api → aggregates → web)
 

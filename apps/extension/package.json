@@ -1,17 +1,63 @@
 {
-  "name": "@code-coach/extension",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "build": "echo \"TODO: add extension build (tsc + vsce)\"",
-    "test": "echo \"TODO: add extension tests\""
-  },
-  "devDependencies": {
-    "@types/node": "^22.10.10",
-    "@types/vscode": "^1.96.0",
-    "typescript": "^5.7.3"
-  }
+    "name": "@code-coach/extension",
+    "displayName": "Code Coach",
+    "description": "Ask learning questions during VibeCoding and collect aggregated analytics.",
+    "publisher": "code-coach",
+    "private": true,
+    "version": "0.0.0",
+    "type": "commonjs",
+    "engines": {
+        "vscode": "^1.96.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "main": "./dist/extension.js",
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "contributes": {
+        "chatParticipants": [
+            {
+                "id": "codeCoach.coach",
+                "name": "codecoach",
+                "fullName": "Code Coach",
+                "description": "Ask learning questions about prompts and generated code."
+            }
+        ],
+        "commands": [
+            {
+                "command": "codeCoach.pair",
+                "title": "Code Coach: Pair (enter pairing code)"
+            },
+            {
+                "command": "codeCoach.askQuestion",
+                "title": "Code Coach: Ask a learning question (manual)"
+            },
+            {
+                "command": "codeCoach.sendTestEvent",
+                "title": "Code Coach: Send test event (analytics)"
+            }
+        ],
+        "configuration": {
+            "title": "Code Coach",
+            "properties": {
+                "codeCoach.apiBaseUrl": {
+                    "type": "string",
+                    "default": "http://localhost:8787",
+                    "description": "Code Coach API base URL"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "build": "tsc -p .",
+        "watch": "tsc -p . -w",
+        "test": "echo \"TODO: add extension tests\""
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.10",
+        "@types/vscode": "^1.96.0",
+        "typescript": "^5.7.3"
+    }
 }
-
-

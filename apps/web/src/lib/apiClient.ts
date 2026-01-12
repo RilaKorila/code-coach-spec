@@ -9,6 +9,7 @@ export type MetricPoint = {
   questionCategory: string;
   selfCheck: string;
   count: number;
+  lastRecordedAt: string; // ISO
 };
 
 export type MetricsResponse = {
