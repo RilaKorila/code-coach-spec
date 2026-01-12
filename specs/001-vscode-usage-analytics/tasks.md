@@ -111,9 +111,9 @@ description: "Task list for feature implementation"
 
 #### Web (Next.js)
 
-- [ ] T032 [P] [US1] Implement API client wrapper in `apps/web/src/lib/apiClient.ts`
-- [ ] T033 [US1] Implement pairing-code UI in `apps/web/src/app/pairing/page.tsx` (create + show code)
-- [ ] T034 [US1] Implement dashboard page (basic metrics + empty state) in `apps/web/src/app/dashboard/page.tsx`
+- [x] T032 [P] [US1] Implement API client wrapper in `apps/web/src/lib/apiClient.ts`
+- [x] T033 [US1] Implement pairing-code UI in `apps/web/src/app/pairing/page.tsx` (create + show code)
+- [x] T034 [US1] Implement dashboard page (basic metrics + empty state) in `apps/web/src/app/dashboard/page.tsx`
 
 #### VSCode Extension
 

@@ -2,6 +2,8 @@
 
 import { signIn, signOut, useSession } from 'next-auth/react';
 
+import { isDevAuthBypassEnabled } from '../auth/devAuth';
+
 export default function HomePage() {
     const { data, status } = useSession();
 
@@ -10,7 +12,7 @@ export default function HomePage() {
     // Dev auth bypass mode:
     // - Use this for local development without Google OAuth configuration.
     // - It does NOT protect routes; it only simplifies local UI flow.
-    if (process.env.NEXT_PUBLIC_DEV_AUTH_BYPASS === '1') {
+    if (isDevAuthBypassEnabled()) {
         return (
             <main>
                 <h1>Code Coach Dashboard (DEV)</h1>
