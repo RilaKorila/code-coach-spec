@@ -8,5 +8,7 @@ coverage/
 .DS_Store
 .idea/
 .vscode/
+.npm-cache/
+
 
 apps/web/.next/*
