@@ -29,13 +29,13 @@ description: "Task list for feature implementation"
 
 **Purpose**: Monorepo の初期化と共通基盤
 
-- [ ] T001 Create monorepo directory structure per plan in `apps/` and `packages/`
-- [ ] T002 Initialize root workspace config in `package.json` (workspaces) and `package-lock.json`/`pnpm-lock.yaml` (choose one)
-- [ ] T003 [P] Add root TypeScript config in `tsconfig.base.json`
-- [ ] T004 [P] Add shared lint/format configs in `.eslintrc.*` and `.prettierrc`
-- [ ] T005 [P] Create `apps/api/package.json`, `apps/web/package.json`, `apps/extension/package.json`
-- [ ] T006 [P] Create shared types package skeleton in `packages/shared/src/index.ts`
-- [ ] T007 Add root scripts for dev/test/lint in `package.json` (api/web/extension/playwright)
+- [x] T001 Create monorepo directory structure per plan in `apps/` and `packages/`
+- [x] T002 Initialize root workspace config in `package.json` (workspaces) and `package-lock.json`/`pnpm-lock.yaml` (choose one)
+- [x] T003 [P] Add root TypeScript config in `tsconfig.base.json`
+- [x] T004 [P] Add shared lint/format configs in `.eslintrc.*` and `.prettierrc`
+- [x] T005 [P] Create `apps/api/package.json`, `apps/web/package.json`, `apps/extension/package.json`
+- [x] T006 [P] Create shared types package skeleton in `packages/shared/src/index.ts`
+- [x] T007 Add root scripts for dev/test/lint in `package.json` (api/web/extension/playwright)
 
 ---
 
@@ -52,9 +52,19 @@ description: "Task list for feature implementation"
 - [ ] T012 Implement API server bootstrap in `apps/api/src/server.ts` (Hono app + routing)
 - [ ] T013 [P] Implement API error handler middleware in `apps/api/src/middleware/error.ts`
 - [ ] T014 [P] Implement API request logging middleware in `apps/api/src/middleware/logging.ts`
-- [ ] T015 Implement Web auth (Google login) in `apps/web/src/auth/` (NextAuth or equivalent)
+- [x] T015 Implement Web auth (Google login) in `apps/web/src/auth/` (NextAuth or equivalent)
 - [ ] T016 Implement API auth for web calls (verify Google ID token) in `apps/api/src/middleware/webAuth.ts`
 - [ ] T017 Implement API auth for extension installation (post-claim token) in `apps/api/src/middleware/installationAuth.ts`
+- [x] T008 Setup env management for API in `apps/api/src/config/env.ts`
+- [x] T009 Setup env management for Web in `apps/web/src/config/env.ts`
+- [x] T010 Setup Firestore client wrapper in `apps/api/src/infra/firestore.ts`
+- [x] T011 Setup Vertex AI (Gemini) client wrapper in `apps/api/src/infra/vertexAi.ts`
+- [x] T012 Implement API server bootstrap in `apps/api/src/server.ts` (Hono app + routing)
+- [x] T013 [P] Implement API error handler middleware in `apps/api/src/middleware/error.ts`
+- [x] T014 [P] Implement API request logging middleware in `apps/api/src/middleware/logging.ts`
+- [x] T015 Implement Web auth (Google login) in `apps/web/src/auth/` (NextAuth or equivalent)
+- [x] T016 Implement API auth for web calls (verify Google ID token) in `apps/api/src/middleware/webAuth.ts`
+- [x] T017 Implement API auth for extension installation (post-claim token) in `apps/api/src/middleware/installationAuth.ts`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 

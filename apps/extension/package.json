@@ -1,0 +1,17 @@
+{
+  "name": "@code-coach/extension",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "echo \"TODO: add extension build (tsc + vsce)\"",
+    "test": "echo \"TODO: add extension tests\""
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.10",
+    "@types/vscode": "^1.96.0",
+    "typescript": "^5.7.3"
+  }
+}
+
+

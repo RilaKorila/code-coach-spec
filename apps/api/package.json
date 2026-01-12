@@ -1,0 +1,22 @@
+{
+    "name": "@code-coach/api",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "PORT=8787 tsx src/index.ts",
+        "test": "echo \"TODO: add api tests\""
+    },
+    "dependencies": {
+        "@google-cloud/firestore": "^7.11.0",
+        "@google-cloud/vertexai": "^1.9.0",
+        "@hono/node-server": "^1.13.0",
+        "google-auth-library": "^9.14.2",
+        "hono": "^4.6.12",
+        "jose": "^5.9.6"
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.10",
+        "tsx": "^4.19.2"
+    }
+}
