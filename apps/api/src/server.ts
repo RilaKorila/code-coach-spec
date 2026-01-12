@@ -2,6 +2,11 @@ import { Hono } from 'hono';
 
 import { errorMiddleware } from './middleware/error.js';
 import { loggingMiddleware } from './middleware/logging.js';
+import { eventsRoutes } from './routes/events.js';
+import { metricsRoutes } from './routes/metrics.js';
+import { pairingCodesRoutes } from './routes/pairingCodes.js';
+import { pairingCodesClaimRoutes } from './routes/pairingCodesClaim.js';
+import { questionsGenerateRoutes } from './routes/questionsGenerate.js';
 
 const app = new Hono();
 
@@ -10,12 +15,11 @@ app.use('*', loggingMiddleware);
 
 app.get('/healthz', (c) => c.json({ ok: true }));
 
-// TODO: add routes per OpenAPI:
-// - POST /v1/pairing-codes
-// - POST /v1/pairing-codes/claim
-// - POST /v1/questions/generate
-// - POST /v1/events
-// - GET  /v1/metrics
+app.route('/', pairingCodesRoutes);
+app.route('/', pairingCodesClaimRoutes);
+app.route('/', questionsGenerateRoutes);
+app.route('/', eventsRoutes);
+app.route('/', metricsRoutes);
 
 export default app;
 

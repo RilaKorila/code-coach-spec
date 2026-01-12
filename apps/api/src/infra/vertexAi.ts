@@ -17,9 +17,6 @@ export async function generateLearningQuestion(_input: {
 }): Promise<GeneratedQuestion> {
   // NOTE(MVP): The real implementation will call Gemini via Vertex AI.
   // We keep a deterministic placeholder here until prompt design is finalized.
-  const env = getApiEnv();
-  void env;
-
   // TODO: Implement actual model call.
   return {
     questionId: crypto.randomUUID(),

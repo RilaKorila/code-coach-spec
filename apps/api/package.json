@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "dev": "PORT=8787 tsx src/index.ts",
-        "test": "echo \"TODO: add api tests\""
+        "test": "vitest run --config vitest.config.ts"
     },
     "dependencies": {
         "@google-cloud/firestore": "^7.11.0",
@@ -17,6 +17,7 @@
     },
     "devDependencies": {
         "@types/node": "^22.10.10",
-        "tsx": "^4.19.2"
+        "tsx": "^4.19.2",
+        "vitest": "^2.1.8"
     }
 }

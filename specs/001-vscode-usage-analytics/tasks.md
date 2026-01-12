@@ -98,6 +98,15 @@ description: "Task list for feature implementation"
 - [ ] T028 [US1] Implement `POST /v1/questions/generate` (Vertex AI Gemini) in `apps/api/src/routes/questionsGenerate.ts`
 - [ ] T029 [US1] Implement `POST /v1/events` (ingest, aggregate-only storage) in `apps/api/src/routes/events.ts`
 - [ ] T030 [US1] Implement `GET /v1/metrics` (range=7d/30d) in `apps/api/src/routes/metrics.ts`
+ - [x] T018 [P] [US1] Contract test for pairing endpoints in `apps/api/tests/contract/pairing.test.ts`
+ - [x] T019 [P] [US1] Contract test for question generation endpoint in `apps/api/tests/contract/questions.test.ts`
+ - [x] T020 [P] [US1] Contract test for events ingest + metrics in `apps/api/tests/contract/events-and-metrics.test.ts`
+ - [x] T025 [US1] Implement `POST /v1/pairing-codes` in `apps/api/src/routes/pairingCodes.ts`
+ - [x] T026 [US1] Implement `POST /v1/pairing-codes/claim` in `apps/api/src/routes/pairingCodesClaim.ts`
+ - [x] T027 [US1] Issue installation auth token on claim and document format in `apps/api/src/auth/installationToken.ts`
+ - [x] T028 [US1] Implement `POST /v1/questions/generate` (Vertex AI Gemini) in `apps/api/src/routes/questionsGenerate.ts`
+ - [x] T029 [US1] Implement `POST /v1/events` (ingest, aggregate-only storage) in `apps/api/src/routes/events.ts`
+ - [x] T030 [US1] Implement `GET /v1/metrics` (range=7d/30d) in `apps/api/src/routes/metrics.ts`
 - [ ] T031 [US1] Ensure raw prompt/code is never persisted (code review check + guardrails) in `apps/api/src/policy/rawData.ts`
 
 #### Web (Next.js)
