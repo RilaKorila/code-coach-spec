@@ -26,6 +26,10 @@
   - `GOOGLE_APPLICATION_CREDENTIALS`（ローカル用。Cloud Runでは推奨しない）
   - `VERTEX_AI_LOCATION`（例: `us-central1`）
   - `FIRESTORE_DATABASE`（必要なら）
+  - `EVENT_STORE`（任意）: `auto`（デフォルト） / `firestore` / `memory`
+    - `auto`: Firestore を試し、失敗したら in-memory にフォールバック（ローカル開発向け）
+    - `firestore`: Firestore を強制（認証/エミュレータが無いとエラー）
+    - `memory`: Firestore へは書かず、プロセスのメモリにのみ保持
 
 - Web（Next.js）
   - `NEXTAUTH_URL`

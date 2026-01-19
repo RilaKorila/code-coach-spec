@@ -29,13 +29,13 @@ description: "Task list for feature implementation"
 
 **Purpose**: Monorepo の初期化と共通基盤
 
-- [ ] T001 Create monorepo directory structure per plan in `apps/` and `packages/`
-- [ ] T002 Initialize root workspace config in `package.json` (workspaces) and `package-lock.json`/`pnpm-lock.yaml` (choose one)
-- [ ] T003 [P] Add root TypeScript config in `tsconfig.base.json`
-- [ ] T004 [P] Add shared lint/format configs in `.eslintrc.*` and `.prettierrc`
-- [ ] T005 [P] Create `apps/api/package.json`, `apps/web/package.json`, `apps/extension/package.json`
-- [ ] T006 [P] Create shared types package skeleton in `packages/shared/src/index.ts`
-- [ ] T007 Add root scripts for dev/test/lint in `package.json` (api/web/extension/playwright)
+- [x] T001 Create monorepo directory structure per plan in `apps/` and `packages/`
+- [x] T002 Initialize root workspace config in `package.json` (workspaces) and `package-lock.json`/`pnpm-lock.yaml` (choose one)
+- [x] T003 [P] Add root TypeScript config in `tsconfig.base.json`
+- [x] T004 [P] Add shared lint/format configs in `.eslintrc.*` and `.prettierrc`
+- [x] T005 [P] Create `apps/api/package.json`, `apps/web/package.json`, `apps/extension/package.json`
+- [x] T006 [P] Create shared types package skeleton in `packages/shared/src/index.ts`
+- [x] T007 Add root scripts for dev/test/lint in `package.json` (api/web/extension/playwright)
 
 ---
 
@@ -52,9 +52,19 @@ description: "Task list for feature implementation"
 - [ ] T012 Implement API server bootstrap in `apps/api/src/server.ts` (Hono app + routing)
 - [ ] T013 [P] Implement API error handler middleware in `apps/api/src/middleware/error.ts`
 - [ ] T014 [P] Implement API request logging middleware in `apps/api/src/middleware/logging.ts`
-- [ ] T015 Implement Web auth (Google login) in `apps/web/src/auth/` (NextAuth or equivalent)
+- [x] T015 Implement Web auth (Google login) in `apps/web/src/auth/` (NextAuth or equivalent)
 - [ ] T016 Implement API auth for web calls (verify Google ID token) in `apps/api/src/middleware/webAuth.ts`
 - [ ] T017 Implement API auth for extension installation (post-claim token) in `apps/api/src/middleware/installationAuth.ts`
+- [x] T008 Setup env management for API in `apps/api/src/config/env.ts`
+- [x] T009 Setup env management for Web in `apps/web/src/config/env.ts`
+- [x] T010 Setup Firestore client wrapper in `apps/api/src/infra/firestore.ts`
+- [x] T011 Setup Vertex AI (Gemini) client wrapper in `apps/api/src/infra/vertexAi.ts`
+- [x] T012 Implement API server bootstrap in `apps/api/src/server.ts` (Hono app + routing)
+- [x] T013 [P] Implement API error handler middleware in `apps/api/src/middleware/error.ts`
+- [x] T014 [P] Implement API request logging middleware in `apps/api/src/middleware/logging.ts`
+- [x] T015 Implement Web auth (Google login) in `apps/web/src/auth/` (NextAuth or equivalent)
+- [x] T016 Implement API auth for web calls (verify Google ID token) in `apps/api/src/middleware/webAuth.ts`
+- [x] T017 Implement API auth for extension installation (post-claim token) in `apps/api/src/middleware/installationAuth.ts`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 
@@ -88,25 +98,34 @@ description: "Task list for feature implementation"
 - [ ] T028 [US1] Implement `POST /v1/questions/generate` (Vertex AI Gemini) in `apps/api/src/routes/questionsGenerate.ts`
 - [ ] T029 [US1] Implement `POST /v1/events` (ingest, aggregate-only storage) in `apps/api/src/routes/events.ts`
 - [ ] T030 [US1] Implement `GET /v1/metrics` (range=7d/30d) in `apps/api/src/routes/metrics.ts`
+ - [x] T018 [P] [US1] Contract test for pairing endpoints in `apps/api/tests/contract/pairing.test.ts`
+ - [x] T019 [P] [US1] Contract test for question generation endpoint in `apps/api/tests/contract/questions.test.ts`
+ - [x] T020 [P] [US1] Contract test for events ingest + metrics in `apps/api/tests/contract/events-and-metrics.test.ts`
+ - [x] T025 [US1] Implement `POST /v1/pairing-codes` in `apps/api/src/routes/pairingCodes.ts`
+ - [x] T026 [US1] Implement `POST /v1/pairing-codes/claim` in `apps/api/src/routes/pairingCodesClaim.ts`
+ - [x] T027 [US1] Issue installation auth token on claim and document format in `apps/api/src/auth/installationToken.ts`
+ - [x] T028 [US1] Implement `POST /v1/questions/generate` (Vertex AI Gemini) in `apps/api/src/routes/questionsGenerate.ts`
+ - [x] T029 [US1] Implement `POST /v1/events` (ingest, aggregate-only storage) in `apps/api/src/routes/events.ts`
+ - [x] T030 [US1] Implement `GET /v1/metrics` (range=7d/30d) in `apps/api/src/routes/metrics.ts`
 - [ ] T031 [US1] Ensure raw prompt/code is never persisted (code review check + guardrails) in `apps/api/src/policy/rawData.ts`
 
 #### Web (Next.js)
 
-- [ ] T032 [P] [US1] Implement API client wrapper in `apps/web/src/lib/apiClient.ts`
-- [ ] T033 [US1] Implement pairing-code UI in `apps/web/src/app/pairing/page.tsx` (create + show code)
-- [ ] T034 [US1] Implement dashboard page (basic metrics + empty state) in `apps/web/src/app/dashboard/page.tsx`
+- [x] T032 [P] [US1] Implement API client wrapper in `apps/web/src/lib/apiClient.ts`
+- [x] T033 [US1] Implement pairing-code UI in `apps/web/src/app/pairing/page.tsx` (create + show code)
+- [x] T034 [US1] Implement dashboard page (basic metrics + empty state) in `apps/web/src/app/dashboard/page.tsx`
 
 #### VSCode Extension
 
-- [ ] T035 [P] [US1] Add extension settings + commands scaffold in `apps/extension/package.json` and `apps/extension/src/extension.ts`
-- [ ] T036 [US1] Implement pairing-code input flow in `apps/extension/src/pairing/pairingCode.ts` (store installation token)
-- [ ] T037 [US1] Implement Chat Participant API entrypoint (相談の入口) in `apps/extension/src/chat/participant.ts`
-- [ ] T038 [US1] Implement editor heuristic detector in `apps/extension/src/heuristics/generationLikeDetector.ts` (large insert, test-less logic increase)
-- [ ] T039 [US1] Implement “ask question” manual trigger in `apps/extension/src/commands/askQuestion.ts`
-- [ ] T040 [US1] Implement auto-trigger after 5 generation-like detections in `apps/extension/src/heuristics/autoTrigger.ts`
-- [ ] T041 [US1] Implement API client for extension in `apps/extension/src/api/client.ts`
-- [ ] T042 [US1] Implement question generation call (send raw prompt/code) in `apps/extension/src/api/generateQuestion.ts`
-- [ ] T043 [US1] Implement answer submission + self-check event in `apps/extension/src/api/submitAnswer.ts`
+- [x] T035 [P] [US1] Add extension settings + commands scaffold in `apps/extension/package.json` and `apps/extension/src/extension.ts`
+- [x] T036 [US1] Implement pairing-code input flow in `apps/extension/src/pairing/pairingCode.ts` (store installation token)
+- [x] T037 [US1] Implement Chat Participant API entrypoint (相談の入口) in `apps/extension/src/chat/participant.ts`
+- [x] T038 [US1] Implement editor heuristic detector in `apps/extension/src/heuristics/generationLikeDetector.ts` (large insert, test-less logic increase)
+- [x] T039 [US1] Implement “ask question” manual trigger in `apps/extension/src/commands/askQuestion.ts`
+- [x] T040 [US1] Implement auto-trigger after 5 generation-like detections in `apps/extension/src/heuristics/autoTrigger.ts`
+- [x] T041 [US1] Implement API client for extension in `apps/extension/src/api/client.ts`
+- [x] T042 [US1] Implement question generation call (send raw prompt/code) in `apps/extension/src/commands/askQuestion.ts` (MVP integrated)
+- [x] T043 [US1] Implement answer submission + self-check event in `apps/extension/src/commands/askQuestion.ts` (MVP integrated)
 
 **Checkpoint**: US1 end-to-end demo possible (extension → api → aggregates → web)
 
